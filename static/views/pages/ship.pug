@@ -1,0 +1,35 @@
+extends ../layout.pug
+
+block prepend styles
+    link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+    div(class='breadcrumb')
+        li= title
+    form(id='ship-add-form' name='ship-add-form' class='form-inline' action='')
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='name') Name
+            div(class='col-md-9')
+                input(id='name' name='name' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='country') Country
+            div(class='col-md-9')
+                input(id='country' name='country' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='tonnage') Tonnage
+            div(class='col-md-9')
+                input(id='tonnage' name='tonnage' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-12')
+                button(type='submit' id='btn-create' class='btn btn-primary') Create
+                button(type='submit' id='btn-update' class='btn btn-primary btn-hidden') Update
+                input(type='hidden' id='update-item' name='update-item')
+        div.list-wrapper
+            table(id='ship-list')
+block append scripts
+    script(src='/static/js/models/ship.js')
+    script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+    script(src='/static/js/views/ship.js')

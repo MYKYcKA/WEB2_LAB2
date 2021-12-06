@@ -1,0 +1,34 @@
+extends ../layout.pug
+
+block prepend styles
+    link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+    div(class='breadcrumb')
+        li= title
+    form(id='pierShips-add-form' name='pierShips-add-form' class='form-inline' action='')
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='pier') Pier
+            div(class='col-md-9')
+                select(id='pier' name='pier' class='form-control' required='required')
+                    option(value='' selected='selected') Select pier
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='ship') Ship
+            div(class='col-md-9')
+                select(id='ship' name='ship' class='form-control' required='required')
+                    option(value='' selected='selected') Select ship
+        div(class='form-group')
+            div(class='col-md-12')
+                button(type='submit' id='btn-create' class='btn btn-primary') Create
+                button(type='submit' id='btn-update' class='btn btn-primary btn-hidden') Update
+                input(type='hidden' id='update-item' name='update-item')
+        div.list-wrapper
+            table(id='pierShips-list')
+block append scripts
+    script(src='/static/js/models/ship.js')
+    script(src='/static/js/models/pier.js')
+    script(src='/static/js/models/pierShips.js')
+    script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+    script(src='/static/js/views/pierShips.js')
